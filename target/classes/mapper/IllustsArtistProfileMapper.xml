@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dev.cheerfun.pixivic.mapper.IllustsArtistProfileMapper">
+
+    <insert id="insertIllustsArtistProfile" parameterType="IllustsArtist">
+        insert into illusts_artist_profile(`profile_id`, `artist_id`, `webpage`, `gender`, `region`, `twitter_account`, `twitter_url`)
+                values (#{profileId}, #{artistId}, #{webpage}, #{gender}, #{region}, #{twitterAccount}, #{twitterUrl})
+    </insert>
+
+    <insert id="insertIllustsArtistProfileWithoutId" useGeneratedKeys="true" keyProperty="profile_id" parameterType="IllustsArtist">
+        insert into illusts_artist_profile(`artist_id`, `webpage`, `gender`, `region`, `twitter_account`, `twitter_url`)
+                values (#{artistId}, #{webpage}, #{gender}, #{region}, #{twitterAccount}, #{twitterUrl})
+    </insert>
+
+</mapper>

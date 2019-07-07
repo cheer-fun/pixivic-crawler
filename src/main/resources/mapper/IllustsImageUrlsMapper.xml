@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dev.cheerfun.pixivic.mapper.IllustsImageUrlsMapper">
+    <insert id="insertIllustsImageUrls" parameterType="IllustsImageUrls">
+        insert into illusts_image_urls(`image_url_id`, `illusts_id`, `square_medium`, `medium`, `large`, `original`, `is_cover`)
+                values (#{imageUrlId}, #{illustsId}, #{squareMedium}, #{medium}, #{large}, #{original}, #{isCover})
+    </insert>
+
+    <insert id="insertIllustsImageUrlsWithoutId" useGeneratedKeys="true" keyProperty="imageUrlId"
+            parameterType="IllustsImageUrls">
+        insert into illusts_image_urls(`illusts_id`, `square_medium`, `medium`, `large`, `original`, `is_cover`)
+                values (#{illustsId}, #{squareMedium}, #{medium}, #{large}, #{original}, #{isCover})
+    </insert>
+</mapper>

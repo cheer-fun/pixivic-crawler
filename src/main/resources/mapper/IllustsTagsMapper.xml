@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dev.cheerfun.pixivic.mapper.IllustsTagsMapper">
+    <insert id="insertIllustsTags" parameterType="IllustsTags">
+        insert into illusts_tags(`tags_id`, `illusts_id`, `name`, `translated_name`)
+                values (#{tagsId}, #{illustsId}, #{name}, #{translatedName})
+    </insert>
+
+    <insert id="insertIllustsTagsWithoutId" useGeneratedKeys="true" keyProperty="tagsId" parameterType="IllustsTags">
+        insert into illusts_tags(`illusts_id`, `name`, `translated_name`)
+                values (#{illustsId}, #{name}, #{translatedName})
+    </insert>
+</mapper>
